@@ -1,20 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import Home from "./app/screens/NavBottom";
+import NavBottom from "./app/screens/NavBottom";
+import {
+  Montserrat_100Thin,
+  Montserrat_100Thin_Italic,
+  Montserrat_200ExtraLight,
+  Montserrat_200ExtraLight_Italic,
+  Montserrat_300Light,
+  Montserrat_300Light_Italic,
+  Montserrat_400Regular,
+  Montserrat_400Regular_Italic,
+  Montserrat_500Medium,
+  Montserrat_500Medium_Italic,
+  Montserrat_600SemiBold,
+  Montserrat_600SemiBold_Italic,
+  Montserrat_700Bold,
+  Montserrat_700Bold_Italic,
+  Montserrat_800ExtraBold,
+  Montserrat_800ExtraBold_Italic,
+  Montserrat_900Black,
+  Montserrat_900Black_Italic,
+} from "@expo-google-fonts/montserrat";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  let [fontsLoaded, error] = useFonts({
+    Montserrat_100Thin,
+    Montserrat_100Thin_Italic,
+    Montserrat_200ExtraLight,
+    Montserrat_200ExtraLight_Italic,
+    Montserrat_300Light,
+    Montserrat_300Light_Italic,
+    Montserrat_400Regular,
+    Montserrat_400Regular_Italic,
+    Montserrat_500Medium,
+    Montserrat_500Medium_Italic,
+    Montserrat_600SemiBold,
+    Montserrat_600SemiBold_Italic,
+    Montserrat_700Bold,
+    Montserrat_700Bold_Italic,
+    Montserrat_800ExtraBold,
+    Montserrat_800ExtraBold_Italic,
+    Montserrat_900Black,
+    Montserrat_900Black_Italic,
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+  return <NavBottom />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
